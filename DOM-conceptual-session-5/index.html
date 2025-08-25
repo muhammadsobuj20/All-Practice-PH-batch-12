@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tour of DOM</title>
+    <style>
+        button{
+            background-color: brown;
+            padding: 12px 30px;
+            color: white;
+        }
+    </style>
+<body>
+    <h1>this is my heading</h1>
+
+<section>
+<button id="btn-like" class="btn-primary">Like</button>
+<button id="btn-comment" class="btn-primary">Comment</button>
+<button id="btn-share" class="btn-primary">Share</button>
+</section>
+
+
+<section>
+    <nav>
+        <ul id="item-list" class="list-item">
+        <li class="links-item"><a href="#">Home</a></li>
+        <li class="links-item"><a href="#">About</a></li>
+        <li class="links-item"><a href="#">Service</a></li>
+    </ul>
+    </nav>
+</section>
+
+<div>
+    <p id="demo">demo</p>
+    <p>test one</p>
+    <p>test tow</p>
+    <a id="anchor" href="">kkkkkk</a>
+
+</div>
+<div>
+  <h3 id="date">Kichui bujina ki korbo</h3>
+
+  <form name="myForm" onsubmit="return validation()">
+    <input type="text" name="fname"  >
+  <input type="submit" value="submit">
+  </form>
+
+  <br>
+ 
+</div>
+
+
+<script>
+const p = document.getElementById('demo')
+p.innerText='chang kore dilam'
+p.style.color='red'
+// console.dir(p);
+const menuItem=document.querySelectorAll('li,a')
+// menuItem[0].style.color='green'
+menuItem.forEach(function(i){
+    i.style.color='green'
+    i.style.fontSize='60px'
+    i.style.listStyle='none'
+    i.style.textDecoration='none'
+});
+const items=document.getElementsByClassName('links-item')
+document.getElementById('anchor').innerText='sobuj'
+
+//jkono kisu lekha jay
+const element=document.getElementById('date');
+element.innerHTML=`Today's date is: ${Date()}`
+
+//input .forms()
+function validation(){
+    const form=document.forms['myForm'];
+   const value=form['fname'].value;
+  if(value=== ''){
+    alert('You must the name')
+    return false
+  }
+}
+
+</script>
+</body>
+</html>
